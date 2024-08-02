@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Concrete
 {
-    internal class ExcelManager : IExcelService
+    public class ExcelManager : IExcelService
     {
         public byte[] ExcelList<T>(List<T> list) where T : class
         {

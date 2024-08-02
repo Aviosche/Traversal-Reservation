@@ -50,27 +50,28 @@ namespace Traversal_Reservation.Areas.Admin.Controllers
         public async Task<IActionResult> DeleteCustomer(int id)
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.DeleteAsync("http://localhost:5019/api/Customer");
+            var responseMessage = await client.DeleteAsync($"http://localhost:5019/api/Customer/{id}");
             if(responseMessage.IsSuccessStatusCode)
                 return RedirectToAction("Index");
             return View();
         }
 
+        [HttpGet]
         [Route("{id}")]
         public async Task<IActionResult> UpdateCustomer(int id)
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync($"http://localhost:5019/api/Customer");
+            var responseMessage = await client.GetAsync($"http://localhost:5019/api/Customer/{id}");
             if(responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject(jsonData);
+                var values = JsonConvert.DeserializeObject<CustomerViewModel>(jsonData);
                 return View(values);
             }
             return View();
         }
 
-        [HttpPost]
+        [HttpPost("UpdateCustomer")]
         public async Task<IActionResult> UpdateCustomer(CustomerViewModel customerViewModel)
         {
             var client = _httpClientFactory.CreateClient();

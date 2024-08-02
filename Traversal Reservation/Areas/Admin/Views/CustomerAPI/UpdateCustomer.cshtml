@@ -4,7 +4,7 @@
 <h1>API Customer Güncelleme</h1>
 <br />
 
-<form method="post">
+<form asp-action="UpdateCustomer" asp-controller="CustomerAPI" method="post" enctype="multipart/form-data">
     <input type="hidden" asp-for="CustomerID" />
 
     <label>Müşteri Adı</label>
@@ -27,6 +27,6 @@
     <input type="text" class="form-control" asp-for="Mail" />
     <br />
 
-    <button class="btn btn-outline-success">Kaydet</button>
+    <button type="submit" class="btn btn-outline-success">Kaydet</button>
 
 </form>
