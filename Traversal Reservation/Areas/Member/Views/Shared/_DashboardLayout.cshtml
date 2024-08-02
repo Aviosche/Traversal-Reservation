@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="ltr">
+    <partial name="/Areas/Member/Views/Shared/LayoutPartial/_DashboardHeaderPartial.cshtml" />
+<body class="vertical-layout vertical-menu 2-columns   menu-expanded fixed-navbar" data-open="click" data-menu="vertical-menu" data-color="bg-chartbg" data-col="2-columns">
+
+    <!-- fixed-top-->
+    <nav class="header-navbar navbar-expand-md navbar navbar-with-menu navbar-without-dd-arrow fixed-top navbar-semi-light">
+        <div class="navbar-wrapper">
+            <div class="navbar-container content">
+                <div class="collapse navbar-collapse show" id="navbar-mobile">
+                    <partial name="/Areas/Member/Views/Shared/LayoutPartial/_SearchbarPartial.cshtml" />
+                    <partial name="/Areas/Member/Views/Shared/LayoutPartial/_LanguagePartial.cshtml" />
+                    <partial name="/Areas/Member/Views/Shared/LayoutPartial/_NavbarPartial.cshtml" />
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+
+    <partial name="/Areas/Member/Views/Shared/LayoutPartial/_SidebarPartial.cshtml" />
+
+    <div class="app-content content">
+        <div class="content-wrapper">
+            <div class="content-wrapper-before"></div>
+            <div class="content-header row">
+            </div>
+            <div class="content-body">
+                
+                @RenderBody()
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+
+    <partial name="/Areas/Member/Views/Shared/LayoutPartial/_FooterPartial.cshtml" />
+    <partial name="/Areas/Member/Views/Shared/LayoutPartial/_DashboardScriptPartial.cshtml" />
+    
+</body>
+</html>
+

@@ -1,0 +1,29 @@
+﻿@model AccountViewModel
+
+
+<h1>Unit of Work Personel Para Transferi</h1>
+
+<form method="post">
+    <label>Gönderen</label>
+    <input type="text" asp-for="SenderID" class="form-control" />
+    <br />
+
+    <label>Alıcı</label>
+    <input type="text" asp-for="ReceiverID" class="form-control" />
+    <br />
+
+    <label>Miktar</label>
+    <input type="text" asp-for="Amount" class="form-control" />
+    <br />
+
+    <button id="btnsend" class="btn btn-outline-primary">Gönder</button>
+</form>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+    $("#btnsend").click(function () {
+        alert("Transferi onaylıyor musunuz?\nOnay anında transfer gerçekleştirilecektir.");
+    });
+</script>
+
+

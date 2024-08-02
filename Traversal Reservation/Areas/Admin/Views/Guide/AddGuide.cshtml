@@ -1,0 +1,52 @@
+﻿@model Guide
+
+
+<h1>Yeni Rehber Ekleme</h1>
+<form method="post">
+    <div class="form-group">
+        <label>Ad/Soyad</label>
+        <input type="text" asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name"></span>
+    </div>
+    <br />
+
+    <div class="form-group">
+        <label>Rehber Fotoğrafı</label>
+        <input type="text" asp-for="Image" class="form-control" />
+        <span asp-validation-for="Image"></span>
+    </div>
+    <br />
+
+    <div class="form-group">
+        <label>Açıklama</label>
+        <input type="text" asp-for="Description" class="form-control" />
+        <span asp-validation-for="Description"></span>
+    </div>
+    <br />
+
+    <div class="form-group">
+        <label>Twitter Url</label>
+        <input type="text" asp-for="TwitterUrl" class="form-control" />
+    </div>
+    <br />
+
+    <div class="form-group">
+        <label>Instagram Url</label>
+        <input type="text" asp-for="InstagramUrl" class="form-control" />
+    </div>
+    <br />
+
+    <button class="btn btn-outline-primary">Oluştur</button>
+
+</form>
+
+
+
+
+
+
+
+
+
+
+

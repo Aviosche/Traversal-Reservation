@@ -1,0 +1,17 @@
+﻿@model List<AppUser>
+
+
+<h1>Kullanıcı Listesi</h1>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Kullanıcı Adı</th>
+        <th>Rol Atama</th>
+    </tr>
+    @foreach(var item in Model)
+    {
+        <td>@item.UserName</td>
+        <td><a href="/Admin/Role/AssignRole/@item.Id" class="btn btn-warning">Rol Ata</a></td>
+    }
+</table>
+

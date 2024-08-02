@@ -1,0 +1,16 @@
+﻿@model CreateGuideCommand
+
+
+<h1>Yeni Rehber Ekleme</h1>
+
+<form method="post">
+    <label>Rehber Adı</label>
+    <input type="text" class="form-control" asp-for="Name" />
+    <br />
+
+    <label>Rehber Açıklaması</label>
+    <input type="text" class="form-control" asp-for="Description" />
+    <br />
+
+    <button class="btn btn-outline-info">Ekle</button>
+</form>

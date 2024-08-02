@@ -1,0 +1,45 @@
+﻿@model IEnumerable<BookingExchangeNestedViewModel.Exchange_Rates>
+
+
+
+@* <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> *@
+
+<h1>Booking com API Kur Bilgileri</h1>
+<br />
+
+@* 
+<div>
+    <input type="text" id="txtcurr" placeholder="Karşılaştırmak istediğiniz para birimini giriniz" class="form-control" />
+    <button type="button" id="btncurr" class="btn btn-outline-info">Kur Listele</button>
+</div>
+ *@
+
+<table class="table table-striped">
+    <tr>
+        <th>Kur Adı</th>
+        <th>Kur Oranı</th>
+
+    </tr>
+    @foreach(var item in Model)
+    {
+        <th>@item.currency</th>
+        <td>@item.exchange_rate_buy</td>
+
+    }
+
+</table>
+
+
+@* 
+<script>
+    $("#btncurr").click function() {
+        let values = {
+
+        }
+        $.ajax
+    }
+
+
+</script>
+ *@
+

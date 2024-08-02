@@ -1,0 +1,16 @@
+﻿@model UpdateRoleViewModel
+
+
+<h1>Rol Güncelleme</h1>
+
+<form method="post">
+    <input type="hidden" asp-for="RoleID" />
+    
+    <label>Rol Adı</label>
+    <input type="text" class="form-control" asp-for="Name" />
+    <br />
+
+    <button class="btn btn-outline-success">Güncelle</button>
+</form>
+
+

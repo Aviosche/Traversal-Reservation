@@ -1,0 +1,64 @@
+﻿@model UserEditViewModel
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Profil Güncelleme</h4>
+                <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                <div class="heading-elements">
+                    <ul class="list-inline mb-0">
+                        <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                        <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                        <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                        <li><a data-action="close"><i class="ft-x"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card-content collapse show">
+                <div class="card-body">
+                    <p class="card-text">Traversal hesabınızın bilgilerini buradan güncelleyebilirsiniz.</p>
+                    <form method="post" enctype="multipart/form-data">
+
+                        <label>Adınız</label>
+                        <input type="text" asp-for="Name" class="form-control" />
+                        <br />
+
+                        <label>Soyadınız</label>
+                        <input type="text" asp-for="Surname" class="form-control" />
+                        <br />
+
+                        <label>Mail Adresiniz</label>
+                        <input type="text" asp-for="Mail" class="form-control" />
+                        <br />
+
+                        <label>Telefon Numaranız</label>
+                        <input type="text" asp-for="PhoneNumber" class="form-control" />
+                        <br />
+
+                        <label>Şifreniz</label>
+                        <input type="text" asp-for="Password" class="form-control" />
+                        <br />
+
+                        <label>Şifrenizi Doğrulayın</label>
+                        <input type="text" asp-for="ConfirmPassword" class="form-control" />
+                        <br />
+
+                        <div class="form-group">
+                            <label>Resim Seçin</label> <br />
+                            <input type="file" asp-for="Image" />
+                        </div>
+                        <br />
+                        <button class="btn btn-primary">Bilgileri figure</button>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

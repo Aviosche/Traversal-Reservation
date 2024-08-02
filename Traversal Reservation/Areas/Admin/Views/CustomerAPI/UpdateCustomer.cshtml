@@ -1,0 +1,32 @@
+﻿@model CustomerViewModel
+
+
+<h1>API Customer Güncelleme</h1>
+<br />
+
+<form method="post">
+    <input type="hidden" asp-for="CustomerID" />
+
+    <label>Müşteri Adı</label>
+    <input type="text" class="form-control" asp-for="Name" />
+    <br />
+
+    <label>Müşteri Soyadı</label>
+    <input type="text" class="form-control" asp-for="Surname" />
+    <br />
+
+    <label>Müşteri Şehri</label>
+    <input type="text" class="form-control" asp-for="City" />
+    <br />
+
+    <label>Müşteri Ülkesi</label>
+    <input type="text" class="form-control" asp-for="Country" />
+    <br />
+
+    <label>Müşteri Maili</label>
+    <input type="text" class="form-control" asp-for="Mail" />
+    <br />
+
+    <button class="btn btn-outline-success">Kaydet</button>
+
+</form>

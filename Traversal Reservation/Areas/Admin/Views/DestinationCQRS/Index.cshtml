@@ -1,0 +1,35 @@
+﻿@model List<GetAllDestinationQueryResult>
+
+@{
+    int counter = 0;
+}
+
+<h1>CQRS Tur Verileri</h1>
+<br />
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Şehir</th>
+        <th>Kalma Süresi</th>
+        <th>Fiyat</th>
+        <th>Kapasite</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>@(++counter)</td>
+            <td>@item.City</td>
+            <td>@item.DayNight</td>
+            <td>@item.Price</td>
+            <td>@item.Capacity</td>
+            <td><a href="/Admin/DestinationCQRS/DeleteDestination/@item.ID" class="btn btn-outline-danger">Sil</a></td>
+            <td><a href="/Admin/DestinationCQRS/UpdateDestination/@item.ID" class="btn btn-outline-success">Güncelle</a></td>
+        </tr>
+    }
+
+</table>
+
+<a href="/Admin/destinationCQRS/AddDestination" class="btn btn-outline-primary">Yeni Tur Ekle</a>

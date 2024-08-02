@@ -1,0 +1,42 @@
+﻿@model List<Guide>
+
+@{
+    int counter = 0;
+}
+
+<h1>Rehber Listesi</h1>
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Görsel</th>
+        <th>Ad/Soyad</th>
+        <th>Açıklama</th>
+        <th>Durum</th>
+        <th>Düzenle</th>
+
+    </tr>
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>@(++counter)</td>
+            <td><img src="@item.Image" height="50" width="50" class="rounded"/></td>
+            <td>@item.Name</td>
+            <td>@item.Description</td>
+            @if(item.Status==true)
+            {
+                <td><a href="/Admin/Guide/ChangeToPassive/@item.GuideID" class="btn btn-outline-warning">Pasif Yap</a></td>
+            }
+            else
+            {
+                <td><a href="/Admin/Guide/ChangeToActive/@item.GuideID" class="btn btn-outline-info">Aktif Yap</a></td>
+            }
+            <td><a href="/Admin/Guide/EditGuide" class=btn btn-outline-success">Düzenle</a></td>
+        </tr>
+    }
+
+</table>
+
+<a href="/Admin/Guide/AddGuide" class="btn btn-outline-primary">Yeni Rehber Ekleme</a>
+
+

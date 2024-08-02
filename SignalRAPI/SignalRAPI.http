@@ -1,0 +1,6 @@
+@SignalRAPI_HostAddress = http://localhost:5279
+
+GET {{SignalRAPI_HostAddress}}/Visitor/
+Accept: application/json
+
+###

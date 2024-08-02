@@ -1,0 +1,35 @@
+﻿@model List<Reservation>
+
+@{
+    int counter = 0;
+}
+
+<h1>Kullanıcının Geçmiş Rezervasyonları</h1>
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Kullanıcı Ad/Soyad</th>
+        <th>Tur</th>
+        <th>Kişi Sayısı</th>
+        <th>Tarih</th>
+        <th>Detaylar</th>
+
+    </tr>
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>@(++counter)</td>
+            @* <td>@item.AppUser.Name @item.AppUser.Surname</td> *@
+            <td>@item.Destination.City</td>
+            <td>@item.PersonCount</td>
+            <td>@(((DateTime)item.ReservationDate).ToString("dd-MMM-yyyy"))"</td>
+            <td><a href="#" class="btn btn-outline-primary">Detaylar</a></td>
+
+        </tr>
+    }
+    
+</table>
+
+
+

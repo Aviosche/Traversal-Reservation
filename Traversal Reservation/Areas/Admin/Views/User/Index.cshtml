@@ -1,0 +1,38 @@
+﻿@model List<AppUser>
+
+@{
+    int counter = 0;
+}
+
+<h1>Kullanıcı Listesi</h1>
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Ad/Soyad</th>
+        <th>Kullanıcı Adı</th>
+        <th>Mail</th>
+        <th>Sil</th>
+        <th>Düzenle</th>
+        <th>Yorumlar</th>
+        <th>Tur Geçmişi</th>
+    </tr>
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>@(++counter)</td>
+            <td>@item.Name @item.Surname</td>
+            <td>@item.UserName</td>
+            <td>@item.Email</td>
+            <td><a href="/Admin/User/DeleteUser/@item.Id" class="btn btn-outline-info">Sil</a></td>
+            <td><a href="/Admin/User/EditUser/@item.Id" class="btn btn-outline-danger">Düzenle</a></td>
+            <td><a href="/Admin/User/CommentUser/@item.Id" class="btn btn-outline-success">Yorumlar</a></td>
+            <td><a href="/Admin/User/ReservationUser/@item.Id" class="btn btn-outline-success">Tur Geçmişi</a></td>
+        </tr>
+    }
+</table>
+<a href="/Login/SignUp" class="btn btn-outline-primary">Yeni Kullanıcı Kaydı</a>
+
+
+
+
