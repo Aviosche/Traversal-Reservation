@@ -13,43 +13,28 @@
 <br />
 <br />
 
-<div id="citylist">
-    Aşağıya Listelenecektir.
-</div> 
-<br />
-
-<div>
-    <input type="text" id="txtid" placeholder="Şehir ID değerini giriniz" class="form-control" />
-</div> 
-<br />
-
-<div>
-    <input type="text" id="txtcityid" placeholder="Silinecek ID değerini giriniz" class="form-control" />
-</div> 
-<br />
-
-<div>
-    <input type="text" id="txtcityeditid" placeholder="Güncellenecek ID değerini giriniz" class="form-control" />
-    <input type="text" id="txtcityname" placeholder="Güncellenecek şehir adını giriniz" class="form-control" />
-    <input type="text" id="txtdaynightname" placeholder="Yeni kalma süresini giriniz" class="form-control" />
-</div> 
-<br />
-
 <div id="destinationlistbyid">
 
 </div>
 <br />
 
 <div>
+    <input type="text" id="txtid" placeholder="Şehir ID değerini giriniz" class="form-control" />
+    <br style="line-height: 5px" />
     <input type="text" id="txtcity" placeholder="şehir adını giriniz" class="form-control">
-    <br />
+    <br style="line-height: 5px" />
     <input type="text" id="txtdaynight" placeholder="kalma süresini giriniz" class="form-control">
-    <br />
+    <br style="line-height: 5px" />
     <input type="text" id="txtprice" placeholder="fiyatı giriniz" class="form-control">
-    <br />
+    <br style="line-height: 5px" />
     <input type="text" id="txtcapacity" placeholder="kişi kapasitesini giriniz" class="form-control">
     
 </div>
+<br />
+
+<div id="citylist">
+</div>
+<br />
 
 <script>
     $("#btngetlist").click(function () {
@@ -61,9 +46,9 @@
             success: function (func) {
                 let w = jQuery.parseJSON(func);
                 console.log(w);
-                let tablehtml = "<table class=table table-bordered> <tr><th> Şehir Adı </th><th> Kalma Süresi </th><th> Fiyatı </th></tr>";
+                let tablehtml = "<table class=table table-bordered> <tr><th> Şehir Adı </th><th> Kalma Süresi </th><th> Fiyatı </th><th> Kapasite </th><th> ID </th></tr>";
                 $.each(w, (index, value) => {
-                    tablehtml += `<tr><td>${value.City}</td><td>${value.DayNight}</td><td>${value.Price} $</td></tr>`
+                    tablehtml += `<tr><td>${value.City}</td><td>${value.DayNight}</td><td>${value.Price} $</td><td>${value.Capacity}</td><td>${value.DestinationID}</td></tr>`
                 });
                 tablehtml += "</table>";
                 $("#citylist").html(tablehtml);
@@ -80,8 +65,6 @@
         };
 
         $.ajax({
-            contentType: "application/json",
-            dataType: "json",
             type: "post",
             url: "/Admin/City/AddCityDestination",
             data: cityvalues,
@@ -98,21 +81,21 @@
             contentType: "application/json",
             dataType: "json",
             type: "Get",
-            url: "Admin/City/GetById",
-            data: {DestinationId:id},
+            url: "/Admin/City/GetById",
+            data: {DestinationID:id},
             success: function (fun2) {
                 let result = jQuery.parseJSON(fun2);
                 console.log(result);
-                let htmlstr = `<table class="table table-bordered"><tr><th>Şehir Adı</th><th>Kalma Süresi</th><th>Fiyatı</th></tr><tr><td>${result.City}</td><td>${result.DayNight}</td><td>${result.Capacity}</td><table>`;
+                let htmlstr = `<table class="table table-bordered"><tr><th>Şehir Adı</th><th>Kalma Süresi</th><th>Fiyatı</th><th> Kapasite </th><th> ID </th></tr><tr><td>${result.City}</td><td>${result.DayNight}</td><td>${result.Capacity}</td><td>${value.Capacity}</td><td>${value.DestinationID}</td><table>`;
                 $("#destinationlistbyid").html(htmlstr);
             }
         });
     });
 
     $("#btndeletecity").click(function () {
-        let id = $("#txtcityid").val();
+        let id = $("#txtid").val();
         $.ajax({
-            url: "Admin/City/DeleteCity/" + id,
+            url: "/Admin/City/DeleteCity/" + id,
             type: "post",
             contentType: "application/json",
             dataType: "json",
@@ -124,9 +107,11 @@
 
     $("#btnupdatecity").click(function () {
         let values = {
-            DestinationID: $("#txtcityeditid").val(),
-            City: $("#txtcityname").val(),
-            DayNight: $("#txtdaynightname").val(),
+            DestinationID: $("#txtid").val(),
+            City: $("#txtcity").val(),
+            DayNight: $("#txtdaynight").val(),
+            Price: $("#txtprice").val(),
+            Capacity: $("#txtcapacity").val(),
         };
         $.ajax({
             type: "post",

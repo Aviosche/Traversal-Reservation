@@ -36,6 +36,7 @@ namespace Traversal_Reservation.Areas.Admin.Controllers
             return Json(values);
         }
 
+        
         public IActionResult GeById(int DestinationID)
         {
             var values = _destinationService.TGetByID(DestinationID);
@@ -57,29 +58,7 @@ namespace Traversal_Reservation.Areas.Admin.Controllers
             return Json(v);
         }
 
-        //public static List<CityClass> cities = new List<CityClass>()
-        //{
-        //    new CityClass()
-        //    {
-        //        CityID = 1,
-        //        CityName = "İstanbul",
-        //        CityCountry = "Türkiye"
-        //    },
-
-        //    new CityClass()
-        //    {
-        //        CityID = 2,
-        //        CityName = "Roma",
-        //        CityCountry = "İtalya"
-        //    },
-
-        //    new CityClass()
-        //    {
-        //        CityID = 3,
-        //        CityName = "Londra",
-        //        CityCountry = "İngiltere"
-        //    }
-        //};
+        
 
         
     }
